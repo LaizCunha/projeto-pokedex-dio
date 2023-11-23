@@ -2,6 +2,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-    color: red;
+.content {
+    padding: 1rem;
+}
+
+.content h1 {
+    margin: 0;;
 }
