@@ -11,20 +11,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto:wght@100;300;700&display=swap" rel="stylesheet">
-
+   
+    <script defer src="/assets/js/poke-api.js"></script>
     <script defer src="/assets/js/main.js"></script>
+    <script defer src="/assets/js/pokemon-model.js"></script>
 
     <title>Pokedex</title>
+    
 </head>
 
 <body>
     
     <section class="content">
         <h1>Pokedex</h1>
+
         <ol id="pokemonList" class="pokemons">
-           <li class="pokemon">
-           </li>       
+            <!-- ..... Pokemons here ..... -->
         </ol>
+
+        <div class="pagination">
+            <button id="loadMoreButton" type="button">
+                Load More
+            </button>
+        </div>
     </section>
     
 </body>
