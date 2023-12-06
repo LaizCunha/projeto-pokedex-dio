@@ -1,5 +1,5 @@
 
-const pokeApi = {}
+const pokeApi = {};
 
 function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
@@ -23,14 +23,35 @@ pokeApi.getPokemonDetail = (pokemon) => {
         .then(convertPokeApiDetailToPokemon)
 }
 
-pokeApi.getPokemons = (offset =0 , limit = 5) => {
+function somar(a, b) {
+    return undefined;
+}
+
+pokeApi._getPokemons = (offset = 0, limit = 5) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     return fetch(url)
+
+        .then(x => {
+            return x;
+        })
+
         .then((response) => response.json())
         .then((jsonBody) => jsonBody.results)
         .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
-        .then((detailRequests) => Promise.all(detailRequests))
+        .then((detailRequests) => Promise.all(detailRequests)) // na vdd pokemons ainda sao promesas
         .then((pokemonsDetails) => pokemonsDetails)
 }
+
+pokeApi.getPokemons = async (offset = 0, limit = 5) => {
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
+
+    const response = await fetch(url);
+    const jsonBody = await response.json();
+    const pokemonPromises = await jsonBody.results.map(pokeApi.getPokemonDetail); // aqui ele constroi varias requisicoes, uma para cada pokemon
+    const pokemonsDetails = await Promise.all(pokemonPromises);
+    return pokemonsDetails;
+}
+
+var a = {};
 

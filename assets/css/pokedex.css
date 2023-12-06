@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+  }
+
 .pokemons {
     display: grid;
     grid-template-columns: 1fr;
